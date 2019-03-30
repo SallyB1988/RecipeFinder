@@ -3,7 +3,6 @@ var ingredients = [];   // this will contain ingredient objects (with name and i
 var defaultIngredients = ['chicken', 'beef', 'cheese', 'salmon'];
 var searchItems = [];
 const defaultImage = "./assets/images/groceries.png"; 
-
 /**
  * When an item in the selected items list is clicked, remove it from the searchItems array and update the list
  */
@@ -38,14 +37,14 @@ $(document).on("click", ".single-option", function() {
 
 // SALLY +++++ I probably dont need this try/catch
      if (ingredients[i].image !== "") {
-       try {
+      //  try {
          foodImage = `<img id="ingredient-${i}"
           class="ingredient-option-image"
           src=${ingredients[i].image}
           onerror="this.src='${defaultImage}'" >`
-       } catch {
-         foodImage = "";
-       }
+      //  } catch {
+      //    foodImage = "";
+      //  }
      }
 
     $('#ingredient-options').append(`<div id="ingredient-${i}" class="m-1 float-left ingredient-frame">
@@ -70,7 +69,8 @@ $(document).on("click", ".single-option", function() {
   // Do the AJAX call to get recipes. Initially set it to find 6 recipes
   $("#search-api").on("click", function() {
     // TEMPORARILY COMMENT OUT THE CALL TO GET THE RECIPES
-   // getRecipes(searchItems, 6);
+   getRecipes(searchItems, 6);
+   alert('getting recipes '+ searchItems);
     $("#select-ingredients").modal('hide');
     updateSelectedItemsList("#main-selected-list");
     createMainPageButtons()
@@ -135,7 +135,7 @@ $(document).on("click", ".single-option", function() {
     $mainIngredientBtns.empty();
   
     for (i=0; i<ingredients.length; i++) {
-      $mainIngredientBtns.append(`<button type="button" class="btn text-center py-1 m-2 main-button" food-item="${ingredients[i].name}">${ingredients[i].name}</button>`);
+      $mainIngredientBtns.append(`<button type="button" class="btn text-center py-1 m-2 main-item-button" food-item="${ingredients[i].name}">${ingredients[i].name}</button>`);
     }  
   }
 
@@ -152,11 +152,22 @@ $(document).on("click", ".single-option", function() {
     /**
      * When an item is clicked, add it to the searchItems array and update the selected items list
      */
-    $(document).on("click", ".main-button", function() {
+    $(document).on("click", ".main-item-button", function() {
 
   let food = $(this).attr("food-item");
   if (!searchItems.includes(food)) {
     searchItems.push(food);
     updateSelectedItemsList("#main-selected-list");
   }
+})
+
+ // Do the AJAX call to get recipes. Initially set it to find 6 recipes
+ $("#main-get-recipes").on("click", function() {
+  // TEMPORARILY COMMENT OUT THE CALL TO GET THE RECIPES
+ // getRecipes(searchItems, 6);
+ console.log(searchItems);
+ alert('getting recipes '+ searchItems);
+  // $("#select-ingredients").modal('hide');
+  // updateSelectedItemsList("#main-selected-list");
+  // createMainPageButtons()
 })

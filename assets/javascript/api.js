@@ -1,10 +1,4 @@
-
-// temporary function attached to button to gather data from API
-$("#spoonacular-search").on("click", function(event) {
-  event.preventDefault();
-  var items = ["beef","cashews","onions"];
-  getRecipes(items, 3);
-})
+const defaultRecipeImage = "./assets/images/groceries.png"; 
 
 // ========  MULTIPLE RECIPES API CALL =======================================
 /*
@@ -32,9 +26,7 @@ const getRecipes = (ingredients, quantity) => {
   
   $.ajax(settings).done(function (response) {
     var recipes = createRecipeArray(response);
-    // TODO:  create recipe objects and put them in the recipe display region 
-    console.log("RECIPE CHOICES:");
-    console.log(recipes);
+    createRecipeOptionCards(recipes);
   });
 }
 
@@ -49,6 +41,32 @@ function createRecipeArray(resp) {
     })
   })
   return recipes;
+}
+
+  /*
+  * Creates recipe cards and puts them in the main-recipe-options box
+  */
+function createRecipeOptionCards(recipes) {
+  let $recipeOptions = $("#main-recipe-options");
+  $recipeOptions.empty();
+  let recipeImage = "";
+  for (i=0; i<recipes.length; i++) {
+    if (recipes[i].image !== "") {
+       recipeImage = `<img id="recipe-${i}"
+       class="recipe-option-image"
+       src=${recipes[i].image}
+       alt=${recipes[i].title}
+       onerror="this.src='${defaultRecipeImage}'" >`
+    }
+
+  $('#main-recipe-options').append(`<div id="recipe-${i}# class="m-1 float-left recipe-card">
+    <div class="card" style="width: 18rem;"  recipe-id="${recipes[i].id}">
+      ${recipeImage}
+      <div class="card-body">
+        <p class="card-text text-uppercase">${recipes[i].title}</p>
+      </div>
+    </div> `);
+  }
 }
 
 // ======== SINGLE RECIPE API CALL ======================================

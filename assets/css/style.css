@@ -1,5 +1,5 @@
  body {
-  background-image:url(../assets/images/bb-recipe-ia-hero.png);
+  /* background-image:url(../assets/images/bb-recipe-ia-hero.png); */
  }
 
 .container-fluid {
@@ -10,7 +10,7 @@
   background-color: rgb(187,209,26);
 }
 
-.main-button {
+.main-button, .main-item-button {
   background-color: rgb(98, 109, 15);
   color: white;
   border: none;

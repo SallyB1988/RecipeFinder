@@ -31,12 +31,9 @@
           <div class="form-group mx-3 mb-2 d-block mx-auto">
 
               <form id="main-item-form" class="mb-3">
-                  <input id="main-add-item" class="btn btn-primary" type="submit" value="Add Item">
-                  <input type="text" class="w-50 border-rounded" id="main-new-item-input"><br>
+                  <input  id="main-add-item" class="btn main-button" type="submit" value="Add Item">
+                  <input  for="main-add-item"  type="text" class="w-50 border-rounded" id="main-new-item-input">
                 </form>
-
-            <!-- <button type="submit" class="btn mb-2 main-button">New Item</button>
-            <input type="text" class="form-control" id="main-new-item" > -->
           </div>
         </form>
         </div>
@@ -47,19 +44,15 @@
       <div class="col-md-6">
         <div id="main-recipes-box" class="mx-2 main-box-style">
           <p class="text-uppercase text-center main-header">Recipes</p>
+          <div id="main-recipe-options"></div>
         </div>
       </div>
       <div class="col-md-6">
         <div id="main-selected-box" class="mx-2 main-box-style">
 
           <p class="text-uppercase text-center main-header">Selected ingredients</p>
-          <!-- <form class="form-inline main-new-ingredient">
-            <div class="form-group mx-3 mb-2 d-block mx-auto">
-              <button type="submit" class="btn mb-2 main-button">New Item</button>
-              <input type="text" class="form-control" id="main-new-item" placeholder="">
-            </div>
-          </form> -->
           <div id="main-selected-list" ></div>
+          <button id="main-get-recipes" type="submit" class="btn mb-2 main-button">Get Recipes</button>
         </div>
       </div>
 
