@@ -29,9 +29,14 @@
         <div class="d-block mx-auto">
         <form class="form-inline">
           <div class="form-group mx-3 mb-2 d-block mx-auto">
-            <button type="submit" class="btn mb-2 main-button">New Item</button>
-            <label for="main-new-item" class="sr-only">Password</label>
-            <input type="text" class="form-control" id="main-new-item" placeholder="">
+
+              <form id="main-item-form" class="mb-3">
+                  <input id="main-add-item" class="btn btn-primary" type="submit" value="Add Item">
+                  <input type="text" class="w-50 border-rounded" id="main-new-item-input"><br>
+                </form>
+
+            <!-- <button type="submit" class="btn mb-2 main-button">New Item</button>
+            <input type="text" class="form-control" id="main-new-item" > -->
           </div>
         </form>
         </div>
@@ -48,13 +53,12 @@
         <div id="main-selected-box" class="mx-2 main-box-style">
 
           <p class="text-uppercase text-center main-header">Selected ingredients</p>
-          <form class="form-inline main-new-ingredient">
+          <!-- <form class="form-inline main-new-ingredient">
             <div class="form-group mx-3 mb-2 d-block mx-auto">
               <button type="submit" class="btn mb-2 main-button">New Item</button>
-              <!-- <label for="main-new-item" class="sr-only">Password</label> -->
               <input type="text" class="form-control" id="main-new-item" placeholder="">
             </div>
-          </form>
+          </form> -->
           <div id="main-selected-list" ></div>
         </div>
       </div>

@@ -36,6 +36,7 @@ $(document).on("click", ".single-option", function() {
    let foodImage = "";
    for (let i = 0; i < ingredients.length; i++) {
 
+// SALLY +++++ I probably dont need this try/catch
      if (ingredients[i].image !== "") {
        try {
          foodImage = `<img id="ingredient-${i}"
@@ -75,14 +76,8 @@ $(document).on("click", ".single-option", function() {
     createMainPageButtons()
   })
 
-function createMainPageButtons() {
-  let $mainIngredientBtns = $("#fav-btns");
-  for (i=0; i<ingredients.length; i++) {
-    $mainIngredientBtns.append(`<button type="button" class="btn text-center py-1 m-2 main-button" food-item="${ingredients[i].name}">${ingredients[i].name}</button>`);
-  }  
-}
-
-// On click of add ingredient button
+  
+  // On click of add ingredient button
   $("#add-ingredient").on("click", (e) => {
     e.preventDefault();
     var subject = $("#new-ingredient-input").val().trim();
@@ -92,10 +87,10 @@ function createMainPageButtons() {
     }
     $("#new-ingredient-input").val('');    // clear input field
   })
-
+  
   // Returns true if ingredient exists in list, otherwise returns false
   function ingredientExists(item) {
-
+    
     var index = ingredients.filter((obj) => {
       return obj.name === item;
     })
@@ -105,30 +100,63 @@ function createMainPageButtons() {
       return false;
     }
   }
-
+  
   function createIngredientObject(item) {
     return (
       {
         "name": item,
         "image": getIngredientImage(item),
       }
-    )
-  }
-
-  function getIngredientImage(food) {
-    let findImage;
-    try {
-      findImage = `https://www.themealdb.com/images/ingredients/${food}.png`;
-    } catch {
-      findImage = '';
+      )
     }
-    return findImage
+    
+    function getIngredientImage(food) {
+      let findImage;
+      try {
+        findImage = `https://www.themealdb.com/images/ingredients/${food}.png`;
+      } catch {
+        findImage = '';
+      }
+      return findImage
+    }
+    
+    $(document).ready(() =>{
+      defaultIngredients.forEach((item) => {
+        ingredients.push(createIngredientObject(item))
+        createIngredientChoices();
+      })    
+      
+    })
+    
+    // ===========  FUNCTTIONS RELATED TO MAIN PAGE ============================
+    // Create a set of ingredient buttons to display on the main page
+  function createMainPageButtons() {
+    let $mainIngredientBtns = $("#fav-btns");
+    $mainIngredientBtns.empty();
+  
+    for (i=0; i<ingredients.length; i++) {
+      $mainIngredientBtns.append(`<button type="button" class="btn text-center py-1 m-2 main-button" food-item="${ingredients[i].name}">${ingredients[i].name}</button>`);
+    }  
   }
 
-  $(document).ready(() =>{
-    defaultIngredients.forEach((item) => {
-      ingredients.push(createIngredientObject(item))
-      createIngredientChoices();
-    })    
+    $("#main-add-item").on("click", (e) => {
+      e.preventDefault();
+      var subject = $("#main-new-item-input").val().trim();
+      if (subject !== "" && !ingredientExists(subject)) {
+        ingredients.push(createIngredientObject(subject))
+        createMainPageButtons();
+      }
+      $("#main-new-item-input").val('');    // clear input field
+    })
+    
+    /**
+     * When an item is clicked, add it to the searchItems array and update the selected items list
+     */
+    $(document).on("click", ".main-button", function() {
 
-  })
+  let food = $(this).attr("food-item");
+  if (!searchItems.includes(food)) {
+    searchItems.push(food);
+    updateSelectedItemsList("#main-selected-list");
+  }
+})
