@@ -68,9 +68,7 @@ $(document).on("click", ".single-option", function() {
 
   // Do the AJAX call to get recipes. Initially set it to find 6 recipes
   $("#search-api").on("click", function() {
-    // TEMPORARILY COMMENT OUT THE CALL TO GET THE RECIPES
    getRecipes(searchItems, 6);
-   alert('getting recipes '+ searchItems);
     $("#select-ingredients").modal('hide');
     updateSelectedItemsList("#main-selected-list");
     createMainPageButtons()
