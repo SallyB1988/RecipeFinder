@@ -16,49 +16,53 @@
 
 <body>
   <div class="container-fluid">
-    <header>
-      <div>Recipe Search!</div>
-    </header>
-
-    <h1>
-      <p>Favorite ingredients</p>
-      <div id="fav-btns"></div>
-      <form id="ingredient">
-        <label for="main-ingredient-input">Search ingredient</label>
-        <input type="text" id="main-ingredient-input">
-        <br>
-        <button id="search">Submit</button>
-      </form>
-
-    </h1>
-    <h2>
-      <heading>
-        <p class="pb-1">Selected ingredients</p>
-      </heading>
-      <div id="main-selected-list"></div>
-      <br><br><br><br><br><br><br><br>
-      <div id="numRecipes">
-        <label for="num-recipes-input">Number of Recipes</label>
-        <input type="text" id="num-recipes-input">
-        <br>
-        <button id="numsearch">Find Recipes</button>
+    <div class="row">
+      <div class="col-md-12 px-3 py-2 my-2 main-style">
+        <p class="text-uppercase text-center main-header">Recipe Search</p>
       </div>
-    </h2>
-    <section>
-      <p>Recipe Display Region</p>
-    </section>
-    <form id="ingredient">
-      <label for="ingredient-input">Search Recipes</label>
-      <input type="text" id="ingredient-input">
-      <br>
-      <button id="search">Submit</button>
-      <button id="spoonacular-search">Spoonacular</button>
-    </form>
-    
-    <div class="container">
-      
-      <!-- Bootstrap Modal -->
-      <div class="modal fade" id="select-ingredients" data-backdrop="static" tabindex="-1" role="dialog"
+    </div>
+    <div class="row main-sel-ingredients">
+      <div class="col-md-12 px-3 py-2 my-2 main-style">
+
+        <p class="text-uppercase text-center main-header">Favorite ingredients</p>
+        <div id="fav-btns" class="d-block mx-auto"></div>
+        <div class="d-block mx-auto">
+        <form class="form-inline">
+          <div class="form-group mx-3 mb-2 d-block mx-auto">
+            <button type="submit" class="btn mb-2 main-button">New Item</button>
+            <label for="main-new-item" class="sr-only">Password</label>
+            <input type="text" class="form-control" id="main-new-item" placeholder="">
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-md-6">
+        <div id="main-recipes-box" class="mx-2 main-box-style">
+          <p class="text-uppercase text-center main-header">Recipes</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div id="main-selected-box" class="mx-2 main-box-style">
+
+          <p class="text-uppercase text-center main-header">Selected ingredients</p>
+          <form class="form-inline main-new-ingredient">
+            <div class="form-group mx-3 mb-2 d-block mx-auto">
+              <button type="submit" class="btn mb-2 main-button">New Item</button>
+              <!-- <label for="main-new-item" class="sr-only">Password</label> -->
+              <input type="text" class="form-control" id="main-new-item" placeholder="">
+            </div>
+          </form>
+          <div id="main-selected-list" ></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bootstrap Modal -->
+    <div class="modal fade" id="select-ingredients" data-backdrop="static" tabindex="-1" role="dialog"
       aria-labelledby="exampleModalLongTitle" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -68,7 +72,7 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          
+
           <div class="modal-body">
             <div class="row">
               <div id="ingredient-options" class="col-md-8 px-3 ingredient-options"></div>
@@ -95,13 +99,15 @@
       </div>
     </div>
   </div>
-  
+
   <!-- <script src="assets/logic.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
   <script src="./assets/javascript/logic.js"></script>
   <script src="./assets/javascript/api.js"></script>
   <script src="./assets/javascript/modal.js"></script>

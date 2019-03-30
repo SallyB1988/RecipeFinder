@@ -76,10 +76,9 @@ $(document).on("click", ".single-option", function() {
   })
 
 function createMainPageButtons() {
-  let $mainIngredientBtns = $("#fav-btns").append("<div>");
-  // let $mainIngredientBtns = $("#fav-btns").append("<div>").addClass("list-group");
+  let $mainIngredientBtns = $("#fav-btns");
   for (i=0; i<ingredients.length; i++) {
-    $mainIngredientBtns.append(`<button type="button" class="btn btn-primary text-center py-1 m-2 selected-item" food-item="${ingredients[i].name}">${ingredients[i].name}</button>`);
+    $mainIngredientBtns.append(`<button type="button" class="btn text-center py-1 m-2 main-button" food-item="${ingredients[i].name}">${ingredients[i].name}</button>`);
   }  
 }
 
