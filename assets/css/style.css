@@ -1,0 +1,85 @@
+header{
+display: block;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  background:rgb(187,209,26);
+  font-display: Times;
+  font-size: 50px;
+  font: bolder;
+  font-family: cursive;
+  border: 5px solid gray;
+  animation-timing-function: ease-in-out;
+}
+
+h1{
+    display: block;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  background:rgb(187,209,26);
+  font-display: Times;
+  font-size: 30px;
+  font: bolder;
+  border: 5px solid gray;
+  opacity: 0.8;
+  filter: alpha(opacity=50);
+
+}
+h2 {
+    display: block;
+    float: right;
+    width: 40%;
+    height: 267px;
+    overflow: hidden;
+    outline: black;
+    display: block;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    border: 5px solid gray;
+    background: rgb(187,209,26);
+    height: 550px;
+    opacity: 0.8;
+    filter: alpha(opacity=50);
+  }
+
+ section {
+    display: block;
+    float: left;
+    width: 40%;
+    height: 267px;
+    overflow: hidden;
+    outline: black;
+    display: block;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    border: 5px solid gray;
+    background: rgb(187,209,26);
+    height: 550px;
+    float: left; 
+    font-size: 30px;
+    text-emphasis: bolder;
+    opacity: 0.8;
+    filter: alpha(opacity=50);
+ }
+
+ body {
+background-image:url(../assets/images/bb-recipe-ia-hero.png);
+ }
+
+ .button1{
+    font-size: 12px;
+ }
+
+ div.numRecipes{
+    position: absolute;
+    bottom: 10px;
+    width: 50%;
+    border: 3px solid #8AC007;
+ }
+
+.container-fluid {
+  padding: 10px 60px;
+}

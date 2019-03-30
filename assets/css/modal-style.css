@@ -1,0 +1,70 @@
+.modal-header {
+  background-color: rgb(51, 76, 143);
+  color: white;
+}
+
+.modal-title {
+  text-transform: uppercase;
+}
+
+.modal-content {
+  background-color: rgba(236, 214, 151, 0.973) !important;
+  /* height: 600px; */
+}
+
+.modal-dialog {
+  max-width: 75%;
+}
+
+#ingredient-options {
+  flex-wrap: wrap;
+  height: 450px;
+  overflow-y: auto;
+}
+
+#selected-title {
+  font-size: 26px;
+  text-align: center;
+}
+
+.selected-item {
+  background-color: rgb(218, 214, 215);
+  color: black;
+  text-transform: uppercase;
+}
+
+/* Styling for ingredient inside frame */
+.ingredient-frame {
+  background-color: rgba(51, 76, 143, 0.644);
+  height: 100px;
+  width: 120px;
+}
+
+.ingredient-option-image {
+  width:  80px;
+  height: 80px;
+  display: block;
+  margin: auto;
+  padding-bottom: 1em;
+  background-color: transparent;
+  border: none;
+  /* border-radius: 15px; */
+}
+
+.ingredient-name {
+  color: white;
+  text-transform: uppercase;
+  padding: 3px;
+}
+
+#new-ingredient-input {
+  background-color: rgb(218, 214, 215);
+}
+
+#search-api, #add-ingredient {
+  background-color: rgb(51, 76, 143);
+}
+
+.close {
+  color: white;
+}
