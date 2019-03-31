@@ -5,10 +5,31 @@ const fakeData = [
   {id: 113949, title: "Chicken and Wild Rice", image: "https://spoonacular.com/recipeImages/113949-312x231.jpg"},
   {id: 603825, title: "Buffalo Chicken Spring Rolls #SundaySupper", image: "https://spoonacular.com/recipeImages/603825-312x231.jpg"},
   {id: 543731, title: "Chicken Fajita Rice Bowl", image: "https://spoonacular.com/recipeImages/543731-312x231.jpg"},
-  {id: 534542, title: "Barbecue Chicken and Veggie Rice Bowls for Lunchboxes", image: "https://spoonacular.com/recipeImages/534542-312x231.png"},
   {id: 27998, title: "Chicken and Zucchini Skillet", image: "https://spoonacular.com/recipeImages/27998-312x231.jpg"},
   {id: 921334, title: "Savory Rice Porridge #SundaySupper", image: "https://spoonacular.com/recipeImages/921334-312x231.jpg"},
 ];
+
+
+const  fakeRecipeDetails = {
+  image: "https://spoonacular.com/recipeImages/27998-556x370.jpg",
+  ingredients: [
+    "2 cans (15 oz. each) navy or great Northern beans, drained, rinsed",
+    "3 cups hot cooked rice",
+    "1/2 cup KRAFT Zesty Italian Dressing, divided",
+    "1-1/2 cups KRAFT Shredded Low-Moisture Part-Skim Mozzarella Cheese",
+    "1 whole chicken (3-1/2 lb.), cut into 8 pieces",
+    "5 small zucchini, cut into 1/4-inch slices (about 4 cups)",
+  ],
+  instructions: [
+  "Heat 1/4 cup of the dressing in large skillet on medium-high heat.",
+  "Add chicken; cook 10 min. or until browned on both sides.",
+  "Remove from skillet; cover to keep warm.",
+  "Add remaining 1/4 cup dressing and beans.  Top with chicken; cover.  Reduce heat; cook 20 to 25 min. or until chicken is cooked through (180F), stirring occasionally and mashing beans to thicken sauce as desired.",
+  "Stir in zucchini; cook 10 min. or until tender, stirring occasionally.  Spoon chicken mixture over rice on large serving platter.  Sprinkle with cheese.",
+  ],
+  name: "Chicken and Zucchini Skillet",
+  timeinMinutes: 55,
+}
 
 
 
@@ -59,7 +80,6 @@ function createRecipeArray(resp) {
       "image": o.image,
     })
   })
-  console.log(recipes);
   return recipes;
 }
 
@@ -78,13 +98,12 @@ function createRecipeOptionCards(recipes) {
        alt=${recipes[i].title}
        onerror="this.src='${defaultRecipeImage}'" >`
     }
-    // <div class="card" style="width: 9rem;"  recipe-id="${recipes[i].id}">
 
   $('#main-recipe-options').append(`<div id="recipe-${i}# class="m-1 justify-content-between recipe-card">
-  <div class="card  recipe-card"  recipe-id="${recipes[i].id}">
+  <div class="card recipe-card"  recipe-id="${recipes[i].id}">
   ${recipeImage}
-      <div class="card-body">
-        <p class="card-text text-uppercase">${recipes[i].title}</p>
+      <div class="py-1">
+        <p class="card-text">${recipes[i].title}</p>
       </div>
     </div> `);
   }
@@ -96,27 +115,34 @@ function createRecipeOptionCards(recipes) {
  *  Parameters:
  *    id:   the integer id value representing a apecific spoonacular recipe
  */
-const getRecipeDetails = (id) => {
+// const openRecipeDetailsPage = (id) => {
 
-  var recipe = {};
-  var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${id}/information`,
-    "method": "GET",
-    "headers": {
-      "X-RapidAPI-Key": "13639e06b5msh6d9dc61e3c615b9p1f0efcjsn980ee447f232",
-      "cache-control": "no-cache",
-      "Postman-Token": "93e85d06-a15d-45b5-b778-3914b88e4fe0"
-    }
-  }
+//   var recipe = {};
+//   var settings = {
+//     "async": true,
+//     "crossDomain": true,
+//     "url": `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${id}/information`,
+//     "method": "GET",
+//     "headers": {
+//       "X-RapidAPI-Key": "13639e06b5msh6d9dc61e3c615b9p1f0efcjsn980ee447f232",
+//       "cache-control": "no-cache",
+//       "Postman-Token": "93e85d06-a15d-45b5-b778-3914b88e4fe0"
+//     }
+//   }
   
-  $.ajax(settings).done(function (response) {
-    recipe = createRecipeObject(response);
-    console.log("RECIPE 1 DETAILS:");
-    console.log(recipe);
-  });
+//   $.ajax(settings).done(function (response) {
+//     recipe = createRecipeObject(response);
+// localStorage.clear();
+// localStorage.setItem("data", JSON.stringify(recipe));
+//     window.open("recipeDetails.html")
+//   });
 
+// }
+
+const openRecipeDetailsPage = (id) => {
+  localStorage.clear();
+  localStorage.setItem("data", JSON.stringify(fakeRecipeDetails));
+    window.open("recipeDetails.html")
 }
 
 /* Generates a recipe object with the following key values:
@@ -169,3 +195,5 @@ function getIngredients(items) {
   })
   return newArray;
 }
+
+

@@ -17,7 +17,7 @@ $(document).on("click", ".selected-item", function() {
 /**
  * When an item is clicked, add it to the searchItems array and update the selected items list
  */
-$(document).on("click", ".single-option", function() {
+$(document).on("click", ".single-ingredient", function() {
 
   let food = $(this).attr("food-item");
   if (!searchItems.includes(food)) {
@@ -35,20 +35,15 @@ $(document).on("click", ".single-option", function() {
    let foodImage = "";
    for (let i = 0; i < ingredients.length; i++) {
 
-// SALLY +++++ I probably dont need this try/catch
      if (ingredients[i].image !== "") {
-      //  try {
          foodImage = `<img id="ingredient-${i}"
           class="ingredient-option-image"
           src=${ingredients[i].image}
           onerror="this.src='${defaultImage}'" >`
-      //  } catch {
-      //    foodImage = "";
-      //  }
      }
 
     $('#ingredient-options').append(`<div id="ingredient-${i}" class="m-1 float-left ingredient-frame">
-      <div class="single-option" food-item="${ingredients[i].name}">
+      <div class="single-ingredient" food-item="${ingredients[i].name}">
         <div class="text-center ingredient-name">${ingredients[i].name}</div>
         ${foodImage}
       </div>`);
@@ -168,4 +163,15 @@ $(document).on("click", ".single-option", function() {
   // $("#select-ingredients").modal('hide');
   // updateSelectedItemsList("#main-selected-list");
   // createMainPageButtons()
+})
+
+
+// ===================  SPECIFIC RECIPE DETAILS =================
+/**
+ * When an item is clicked, add it to the searchItems array and update the selected items list
+ */
+$(document).on("click", ".recipe-card", function() {
+
+  const recipeId = $(this).attr("recipe-id");
+  openRecipeDetailsPage(recipeId);
 })

@@ -4,13 +4,12 @@
 <head>
   <!-- Required Meta Tags -->
   <meta charset="utf-8" />
-
-  <head>
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/modal-style.css">
+    <title>Recipe Finder</title>
 
   </head>
 
@@ -41,13 +40,13 @@
     </div>
 
     <div class="row mt-5">
-      <div class="col-md-10">
+      <div class="col-md-9">
         <div id="main-recipes-box" class="main-box-style">
           <p class="text-uppercase text-center main-header">Recipes</p>
           <div id="main-recipe-options" ></div>
         </div>
       </div>
-      <div class="col-md-2">
+      <div class="col-md-3">
         <div id="main-selected-box" class="main-box-style">
 
           <p class="text-uppercase text-center main-header">Selected ingredients</p>
@@ -58,7 +57,7 @@
 
     </div>
 
-    <!-- Bootstrap Modal -->
+    <!-- Bootstrap Modal -- Initial Select Ingredients -->
     <div class="modal fade" id="select-ingredients" data-backdrop="static" tabindex="-1" role="dialog"
       aria-labelledby="exampleModalLongTitle" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -95,6 +94,7 @@
         </div>
       </div>
     </div>
+
   </div>
 
   <!-- <script src="assets/logic.js"></script> -->
