@@ -1,6 +1,6 @@
-var ingredients = [];   // this will contain ingredient objects (with name and image)
+var ingredients = [];   // this array will contain ingredient objects (with name and image)
 
-var defaultIngredients = ['chicken', 'beef', 'cheese', 'salmon', 'rice'];
+var defaultIngredients = ['chicken', 'beef', 'cheese', 'salmon', 'rice'];   // we can eventually put this in local storage
 var searchItems = [];
 const defaultImage = "./assets/images/groceries.png"; 
 /**
@@ -76,15 +76,6 @@ $(document).on("mousedown", ".single-ingredient", function(e) {
     }
   }
 
-  // Do the AJAX call to get recipes. Initially set it to find 6 recipes
-  $("#search-api").on("click", function() {
-   getRecipes(searchItems, 6);
-    $("#select-ingredients").modal('hide');
-    updateSelectedItemsList("#main-selected-list");
-    createMainPageButtons()
-  })
-
-  
   // On click of add ingredient button
   $("#add-ingredient").on("click", (e) => {
     e.preventDefault();
@@ -187,21 +178,19 @@ $(document).on("mousedown", ".single-ingredient", function(e) {
   }
 })
 
- // Do the AJAX call to get recipes. Initially set it to find 6 recipes
- $("#main-get-recipes").on("click", function() {
-  // TEMPORARILY COMMENT OUT THE CALL TO GET THE RECIPES
- // getRecipes(searchItems, 6);
- console.log(searchItems);
- alert('getting recipes '+ searchItems);
-  // $("#select-ingredients").modal('hide');
-  // updateSelectedItemsList("#main-selected-list");
-  // createMainPageButtons()
+ // Calls the function that makes the API call to get recipes. Initially set it to find 6 recipes
+ $("#main-get-recipes, #search-api").on("click", function() {
+  getRecipes(searchItems, 6);
+  $("#select-ingredients").modal('hide');
+  updateSelectedItemsList("#main-selected-list");
+  createMainPageButtons()
 })
-
 
 // ===================  SPECIFIC RECIPE DETAILS =================
 /**
- * When an item is clicked, add it to the searchItems array and update the selected items list
+ * This function gets the id of the recipe that was clicked. Then it calls
+ * opeRecipeDetailsPage, which does the AJAX call to get the recipe information
+ * from the Spoonacular API.
  */
 $(document).on("click", ".recipe-card", function() {
 

@@ -6,3 +6,7 @@
 .recipe-title {
   text-transform: uppercase;
 }
+
+.instruction-line {
+  padding: 3px 0px;
+}
