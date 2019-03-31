@@ -1,6 +1,6 @@
 var ingredients = [];   // this will contain ingredient objects (with name and image)
 
-var defaultIngredients = ['chicken', 'beef', 'cheese', 'salmon'];
+var defaultIngredients = ['chicken', 'beef', 'cheese', 'salmon', 'rice'];
 var searchItems = [];
 const defaultImage = "./assets/images/groceries.png"; 
 /**
@@ -17,12 +17,27 @@ $(document).on("click", ".selected-item", function() {
 /**
  * When an item is clicked, add it to the searchItems array and update the selected items list
  */
-$(document).on("click", ".single-ingredient", function() {
-
+$(document).on("mousedown", ".single-ingredient", function(e) {
   let food = $(this).attr("food-item");
-  if (!searchItems.includes(food)) {
-    searchItems.push(food);
-    updateSelectedItemsList("#selected-list");
+  if (e.button === 0) { // left mouse click -- add item to selected list  
+    if (!searchItems.includes(food)) {
+      searchItems.push(food);
+      updateSelectedItemsList("#selected-list");
+    }
+  } else if (e.button === 2) {  // right mouse click -- remove item from ingredient optionslist
+    for (i=0; i<ingredients.length; i++) {
+      if (ingredients[i].name === food) {
+        ingredients.splice(i,1);
+        break;
+      }  
+    }
+    // remove item from seleted items list as well (if it is there)
+    let index = searchItems.indexOf(food)
+    if (index >= 0) {
+      searchItems.splice(index,1);
+    }
+    updateSelectedItemsList("#selected-list")
+    createIngredientChoices();
   }
 })
 
@@ -145,12 +160,30 @@ $(document).on("click", ".single-ingredient", function() {
     /**
      * When an item is clicked, add it to the searchItems array and update the selected items list
      */
-    $(document).on("click", ".main-item-button", function() {
+    $(document).on("mousedown", ".main-item-button", function(e) {
 
   let food = $(this).attr("food-item");
-  if (!searchItems.includes(food)) {
-    searchItems.push(food);
-    updateSelectedItemsList("#main-selected-list");
+  if (e.button === 0) { // left mouse click -- add item to selected ingredients list
+    if (!searchItems.includes(food)) {
+      searchItems.push(food);
+      updateSelectedItemsList("#main-selected-list");
+    }
+  } else if (e.button === 2) {  // right mouse click -- remove item button from ingredient options
+    for (i=0; i<ingredients.length; i++) {
+      if (ingredients[i].name === food) {
+        ingredients.splice(i,1);
+        break;
+      }  
+    }
+    // remove item from seleted items list as well (if it is there)
+    let index = searchItems.indexOf(food)
+    if (index >= 0) {
+      searchItems.splice(index,1);
+    }
+    updateSelectedItemsList("#main-selected-list")
+    createMainPageButtons();
+
+    // createIngredientChoices();
   }
 })
 

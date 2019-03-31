@@ -1,5 +1,5 @@
 .modal-header {
-  background-color: rgb(51, 76, 143);
+  background-color: rgb(86, 99, 90);   /* DARKEST green-grey */
   color: white;
 }
 
@@ -8,12 +8,15 @@
 }
 
 .modal-content {
-  background-color: rgba(236, 214, 151, 0.973) !important;
-  /* height: 600px; */
+  background-color: rgb(146, 158, 150);     /* MEDIUM Green-gray*/
 }
 
 .modal-dialog {
   max-width: 75%;
+}
+
+.modal-btn {
+  background-color: rgb(117, 134, 123);   /* DARKER green-grey */
 }
 
 #ingredient-options {
@@ -27,15 +30,15 @@
   text-align: center;
 }
 
-.selected-item {
-  background-color: rgba(203, 206, 203, 0.678);
+.selected-item {  
+  background-color: rgba(203, 206, 203, 0.678);   /* LIGHT green-grey */
   color: black;
   text-transform: uppercase;
 }
 
 /* Styling for ingredient inside frame */
 .ingredient-frame {
-  background-color: rgba(51, 76, 143, 0.644);
+  background-color: rgb(117, 134, 123);   /* DARKER green-grey */
   height: 100px;
   width: 120px;
 }
@@ -57,12 +60,14 @@
   padding: 3px;
 }
 
-#new-ingredient-input {
-  background-color: rgba(203, 206, 203, 0.678);
+.instructions {
+  background-color: rgb(117, 134, 123);   /* DARKER green-grey */
+  border-radius: 5px;
+  font-size: 18px;
 }
 
-#search-api, #add-ingredient {
-  background-color: rgb(98, 109, 15);
+#new-ingredient-input {
+  background-color: rgba(203, 206, 203, 0.678);
 }
 
 .close {
