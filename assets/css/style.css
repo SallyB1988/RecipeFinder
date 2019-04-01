@@ -1,16 +1,17 @@
- body {
+body {
   /* background-image:url(../assets/images/bb-recipe-ia-hero.png); */
- }
+}
 
 .container-fluid {
   padding: 10px 60px;
 }
 
 .main-style {
-  background-color: rgb(187,209,26);
+  background-color: #eeeeee;
 }
 
-.main-button, .main-item-button {
+.main-button,
+.main-item-button {
   background-color: rgb(98, 109, 15);
   color: white;
   border: none;
@@ -20,13 +21,13 @@
 
 .main-header {
   text-transform: uppercase;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', 'Arial', 'sans-serif';
+  font-family: "Franklin Gothic Medium", "Arial Narrow", "Arial", "sans-serif";
   font-weight: normal;
   font-size: 2em;
 }
 
 .main-box-style {
-  background-color: rgb(187,209,26);
+  background-color: #eeeeee;
   min-height: 400px;
 }
 
@@ -45,8 +46,6 @@
   margin: 10px;
   float: left;
   /* justify-content: space-around!important; */
-
-
 }
 
 #main-recipe-options {
