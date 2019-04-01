@@ -1,6 +1,6 @@
 .modal-header {
-  background-color: rgb(86, 99, 90);   /* DARKEST green-grey */
-  color: white;
+  background-color: #49a6a5;   /* DARKEST green-grey */
+  color: black;
 }
 
 .modal-title {
@@ -8,7 +8,7 @@
 }
 
 .modal-content {
-  background-color: rgb(146, 158, 150);     /* MEDIUM Green-gray*/
+  background-color: rgb(202, 226, 221);     /* MEDIUM Green-gray*/
 }
 
 .modal-dialog {
@@ -16,7 +16,7 @@
 }
 
 .modal-btn {
-  background-color: rgb(117, 134, 123);   /* DARKER green-grey */
+  background-color: #49a6a5;   /* DARKER green-grey */
 }
 
 #ingredient-options {
@@ -31,14 +31,14 @@
 }
 
 .selected-item {  
-  background-color: rgba(203, 206, 203, 0.678);   /* LIGHT green-grey */
+  background-color: #49a6a5;   /* LIGHT green-grey */
   color: black;
   text-transform: uppercase;
 }
 
 /* Styling for ingredient inside frame */
 .ingredient-frame {
-  background-color: rgb(117, 134, 123);   /* DARKER green-grey */
+  background-color: #49a6a5;   /* DARKER green-grey */
   height: 100px;
   width: 120px;
 }
@@ -55,13 +55,13 @@
 }
 
 .ingredient-name {
-  color: white;
+  color: black;
   text-transform: uppercase;
   padding: 3px;
 }
 
 .instructions {
-  background-color: rgb(117, 134, 123);   /* DARKER green-grey */
+  background-color: #49a6a5;   /* DARKER green-grey */
   border-radius: 5px;
   font-size: 18px;
 }
@@ -71,7 +71,7 @@
 }
 
 .close {
-  color: white;
+  color: black;
 }
 
 .list-group {
