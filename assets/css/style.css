@@ -1,6 +1,7 @@
-/* body {
-  background-image:url(../assets/images/bb-recipe-ia-hero.png);
-} */
+body {
+  background-image: url(../images/table-2777180_960_720.jpg);
+  background-size: cover;
+}
 
 .container-fluid {
   padding: 10px 60px;
@@ -8,11 +9,13 @@
 
 .main-style {
   background-color: #eeeeee;
+  opacity: 0.8;
 }
 
 .main-button,
 .main-item-button {
-  background-color: rgb(98, 109, 15);
+  background-color: rgb(25, 219, 196);
+  opacity: 0.8;
   color: white;
   border: none;
   margin-left: 8px;
@@ -28,6 +31,7 @@
 
 .main-box-style {
   background-color: #eeeeee;
+  opacity: 0.8;
   min-height: 400px;
 }
 

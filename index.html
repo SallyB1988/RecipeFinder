@@ -1,58 +1,48 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <!-- Required Meta Tags -->
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="./assets/css/reset.css" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="stylesheet" href="./assets/css/modal-style.css" />
-    <link rel="stylesheet" href="./assets/css/animate.min.css" />
-    <title>Recipe Finder</title>
-  </head>
 
-  <body>
-    <div class="container-fluid">
-      <div class="row no-gutters">
-        <div class="col main-style">
-          <img src="./assets/images/logo.png" class="w-25 mx-auto d-block" />
+<head>
+  <!-- Required Meta Tags -->
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="./assets/css/reset.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="./assets/css/modal-style.css" />
+  <link rel="stylesheet" href="./assets/css/animate.min.css" />
+  <title>Recipe Finder</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row no-gutters">
+      <div class="col main-style">
+        <img src="./assets/images/logo.png" class="w-25 mx-auto d-block" />
+      </div>
+    </div>
+    <div class="row no-gutters main-sel-ingredients">
+      <div class="col-md-12 px-3 py-2 my-2 main-style">
+        <p class="text-uppercase text-center main-header">
+          Favorite ingredients
+        </p>
+        <div id="fav-btns" class="d-block mx-auto" oncontextmenu="return false;"></div>
+        <div class="d-block mx-auto">
+          <form class="form-inline">
+            <div class="form-group mx-3 mb-2 d-block mx-auto">
+              <form id="main-item-form" class="mb-3">
+                <input id="main-add-item" class="btn main-button" type="submit" value="Add Item" />
+                <input for="main-add-item" type="text" class="w-50 border-rounded" id="main-new-item-input" />
+              </form>
+            </div>
+          </form>
         </div>
       </div>
-      <div class="row no-gutters main-sel-ingredients">
-        <div class="col-md-12 px-3 py-2 my-2 main-style">
-          <p class="text-uppercase text-center main-header">
-            Favorite ingredients
-          </p>
-          <div
-            id="fav-btns"
-            class="d-block mx-auto"
-            oncontextmenu="return false;"
-          ></div>
-          <div class="d-block mx-auto">
-            <form class="form-inline">
-              <div class="form-group mx-3 mb-2 d-block mx-auto">
-                <form id="main-item-form" class="mb-3">
-                  <input
-                    id="main-add-item"
-                    class="btn main-button"
-                    type="submit"
-                    value="Add Item"
-                  />
-                  <input
-                    for="main-add-item"
-                    type="text"
-                    class="w-50 border-rounded"
-                    id="main-new-item-input"
-                  />
-                </form>
-              </div>
-            </form>
-          </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-md-9">
+        <div id="main-recipes-box" class="main-box-style">
+          <p class="text-uppercase text-center main-header">Recipes</p>
+          <div id="main-recipe-options"></div>
         </div>
       </div>
       <div class="row mt-5">
@@ -157,22 +147,26 @@
               </div>
             </div>
           </div>
+          <div class="col-md-3">
+            <button id="search-api" class="btn d-block mx-auto my-3 modal-btn" type="submit">Search For
+              Recipes</button>
+          </div>
         </div>
       </div>
     </div>
+  </div>
+  </div>
+  </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-    <script src="./assets/javascript/api.js"></script>
-    <script src="./assets/javascript/modal.js"></script>
-  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="./assets/javascript/api.js"></script>
+  <script src="./assets/javascript/modal.js"></script>
+</body>
+
 </html>
