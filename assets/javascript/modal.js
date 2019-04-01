@@ -201,3 +201,7 @@ $(document).on("click", ".recipe-card", function() {
   const recipeId = $(this).attr("recipe-id");
   openRecipeDetailsPage(recipeId);
 })
+
+$(window).on("load", function() {
+  $("#select-ingredients").modal("show");
+});
