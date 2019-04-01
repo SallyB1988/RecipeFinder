@@ -1,109 +1,168 @@
 <!DOCTYPE html>
 <html lang="en-us">
+  <head>
+    <!-- Required Meta Tags -->
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/modal-style.css" />
+    <link rel="stylesheet" href="./assets/css/animate.min.css" />
+    <title>Recipe Finder</title>
+  </head>
 
-<head>
-  <!-- Required Meta Tags -->
-  <meta charset="utf-8" />
-  <link rel="stylesheet" href="./assets/css/reset.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="stylesheet" href="./assets/css/modal-style.css">
-  <link rel="stylesheet" href="./assets/css/animate.min.css">
-  <title>Recipe Finder</title>
-
-</head>
-
-<body>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12 px-3 py-2 my-2 main-style">
-        <p class="text-uppercase text-center main-header">Recipe Search</p>
-      </div>
-    </div>
-    <div class="row main-sel-ingredients">
-      <div class="col-md-12 px-3 py-2 my-2 main-style">
-
-        <p class="text-uppercase text-center main-header">Favorite ingredients</p>
-        <div id="fav-btns" class="d-block mx-auto" oncontextmenu="return false;"></div>
-        <div class="d-block mx-auto">
-          <form class="form-inline">
-            <div class="form-group mx-3 mb-2 d-block mx-auto">
-
-              <form id="main-item-form" class="mb-3">
-                <input id="main-add-item" class="btn main-button" type="submit" value="Add Item">
-                <input for="main-add-item" type="text" class="w-50 border-rounded" id="main-new-item-input">
-              </form>
-            </div>
-          </form>
+  <body>
+    <div class="container-fluid">
+      <div class="row no-gutters">
+        <div class="col main-style">
+          <img src="./assets/images/logo.png" class="w-25 mx-auto d-block" />
         </div>
       </div>
-    </div>
-
-    <div class="row mt-5">
-      <div class="col-md-9">
-        <div id="main-recipes-box" class="main-box-style">
-          <p class="text-uppercase text-center main-header">Recipes</p>
-          <div id="main-recipe-options"></div>
+      <div class="row no-gutters main-sel-ingredients">
+        <div class="col-md-12 px-3 py-2 my-2 main-style">
+          <p class="text-uppercase text-center main-header">
+            Favorite ingredients
+          </p>
+          <div
+            id="fav-btns"
+            class="d-block mx-auto"
+            oncontextmenu="return false;"
+          ></div>
+          <div class="d-block mx-auto">
+            <form class="form-inline">
+              <div class="form-group mx-3 mb-2 d-block mx-auto">
+                <form id="main-item-form" class="mb-3">
+                  <input
+                    id="main-add-item"
+                    class="btn main-button"
+                    type="submit"
+                    value="Add Item"
+                  />
+                  <input
+                    for="main-add-item"
+                    type="text"
+                    class="w-50 border-rounded"
+                    id="main-new-item-input"
+                  />
+                </form>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-      <div class="col-md-3">
-        <div id="main-selected-box" class="main-box-style">
 
-          <p class="text-uppercase text-center main-header">Selected ingredients</p>
-          <div id="main-selected-list"></div>
-          <button id="main-get-recipes" type="submit" class="btn mb-2 main-button">Get Recipes</button>
+      <div class="row mt-5">
+        <div class="col-md-9">
+          <div id="main-recipes-box" class="main-box-style">
+            <p class="text-uppercase text-center main-header">Recipes</p>
+            <div id="main-recipe-options"></div>
+          </div>
         </div>
-      </div>
-
-    </div>
-
-    <!-- Bootstrap Modal -- Initial Select Ingredients -->
-    <div class="modal fade" id="select-ingredients" data-backdrop="static" tabindex="-1" role="dialog"
-      aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title py-1 text-center">Main Ingredients</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
+        <div class="col-md-3">
+          <div id="main-selected-box" class="main-box-style">
+            <p class="text-uppercase text-center main-header">
+              Selected ingredients
+            </p>
+            <div id="main-selected-list"></div>
+            <button
+              id="main-get-recipes"
+              type="submit"
+              class="btn mb-2 main-button"
+            >
+              Get Recipes
             </button>
           </div>
+        </div>
+      </div>
 
-          <div class="modal-body">
-            <div class="row">
-              <div class="w-75 px-5 py-3 mx-auto mt-1 mb-4 instructions">
-                <p>Select the main ingredients you want to use in your recipe search. New ingedients may be added to the
-                  available options list. To remove an item from the list of ingredient choices, right-click on the
-                  item.</p>
-              </div>
+      <!-- Bootstrap Modal -- Initial Select Ingredients -->
+      <div
+        class="modal fade"
+        id="select-ingredients"
+        data-backdrop="static"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title py-1 text-center">Main Ingredients</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-            <div class="row">
-              <!-- headers for modal columns -->
-              <div class="col-md-8">
-                <h4 class="mb-2 text-center text-uppercase">Ingredients</h4>
-              </div>
-              <div class="col-md-4">
-                <h4 class="mb-2 text-center text-uppercase">Selected Ingredients</h4>
-              </div>
-            </div>
-            <div class="row">
-              <div id="ingredient-options" class="col-md-8 px-3 ingredient-options" oncontextmenu="return false;"></div>
-              <div class="col-md-4 p-2 my-2 ingredient-selected">
-                <div id="selected-list"></div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-8">
-                <div id="enter-ingredient" class="my-3">
-                  <form id="ingredient-form" class="mb-3">
-                    <input id="add-ingredient" class="btn mr-2 modal-btn" type="submit" value="Add Ingredient">
-                    <input type="text" class="w-50 border-rounded" id="new-ingredient-input"><br>
-                  </form>
+
+            <div class="modal-body">
+              <div class="row">
+                <div class="w-75 px-5 py-3 mx-auto mt-1 mb-4 instructions">
+                  <p>
+                    Select the main ingredients you want to use in your recipe
+                    search. New ingedients may be added to the available options
+                    list. To remove an item from the list of ingredient choices,
+                    right-click on the item.
+                  </p>
                 </div>
               </div>
-              <div class="col-md-4">
-                <button id="search-api" class="btn d-block mx-auto my-3 modal-btn" type="submit">Search For Recipes</button>
+              <div class="row">
+                <!-- headers for modal columns -->
+                <div class="col-md-8">
+                  <h4 class="mb-2 text-center text-uppercase">Ingredients</h4>
+                </div>
+                <div class="col-md-4">
+                  <h4 class="mb-2 text-center text-uppercase">
+                    Selected Ingredients
+                  </h4>
+                </div>
+              </div>
+              <div class="row">
+                <div
+                  id="ingredient-options"
+                  class="col-md-8 px-3 ingredient-options"
+                  oncontextmenu="return false;"
+                ></div>
+                <div class="col-md-4 p-2 my-2 ingredient-selected">
+                  <div id="selected-list"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-8">
+                  <div id="enter-ingredient" class="my-3">
+                    <form id="ingredient-form" class="mb-3">
+                      <input
+                        id="add-ingredient"
+                        class="btn mr-2 modal-btn"
+                        type="submit"
+                        value="Add Ingredient"
+                      />
+                      <input
+                        type="text"
+                        class="w-50 border-rounded"
+                        id="new-ingredient-input"
+                      /><br />
+                    </form>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <button
+                    id="search-api"
+                    class="btn d-block mx-auto my-3 modal-btn"
+                    type="submit"
+                  >
+                    Search For Recipes
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -111,17 +170,18 @@
       </div>
     </div>
 
-  </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-  </script>
-  <script src="./assets/javascript/api.js"></script>
-  <script src="./assets/javascript/modal.js"></script>
-</body>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./assets/javascript/api.js"></script>
+    <script src="./assets/javascript/modal.js"></script>
+  </body>
 </html>
