@@ -56,73 +56,110 @@
         </div>
       </div>
       <div class="row mt-5">
-          <div class="col-md-9">
-            <div id="main-recipes-box" class="main-box-style">
-              <p class="text-uppercase text-center main-header">Recipes</p>
-              <div id="main-recipe-options"></div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div id="main-selected-box" class="main-box-style">
-              <p class="text-uppercase text-center main-header">
-                Selected ingredients
-              </p>
-              <div id="main-selected-list"></div>
-              <button id="main-get-recipes" type="submit" class="btn mb-2 main-button">
-                Get Recipes
-              </button>
-            </div>
+        <div class="col-md-9">
+          <div id="main-recipes-box" class="main-box-style">
+            <p class="text-uppercase text-center main-header">Recipes</p>
+            <div id="main-recipe-options"></div>
           </div>
         </div>
+        <div class="col-md-3">
+          <div id="main-selected-box" class="main-box-style">
+            <p class="text-uppercase text-center main-header">
+              Selected ingredients
+            </p>
+            <div id="main-selected-list"></div>
+            <button
+              id="main-get-recipes"
+              type="submit"
+              class="btn mb-2 main-button"
+            >
+              Get Recipes
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Bootstrap Modal -- Initial Select Ingredients -->
-    <div class="modal fade" id="select-ingredients" data-backdrop="static" tabindex="-1" role="dialog"
-      aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div
+      class="modal fade"
+      id="select-ingredients"
+      data-backdrop="static"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLongTitle"
+      aria-hidden="true"
+    >
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title py-1 text-center">Main Ingredients</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
             <div class="row">
               <div class="w-75 px-5 py-3 mx-auto mt-1 mb-4 instructions">
-                <p>Select the main ingredients you want to use in your recipe search. New ingedients may be added to the
-                  available options list. To remove an item from the list of ingredient choices, right-click on the
-                  item.</p>
+                <p>
+                  Select the main ingredients you want to use in your recipe
+                  search. New ingedients may be added to the available options
+                  list. To remove an item from the list of ingredient choices,
+                  right-click on the item.
+                </p>
               </div>
             </div>
             <div class="row">
               <div class="col-md-9">
                 <h4 class="mb-2 text-center text-uppercase">Ingredients</h4>
-                <div id="ingredient-options" class="px-3 ingredient-options" oncontextmenu="return false;">
-                </div>
+                <div
+                  id="ingredient-options"
+                  class="px-3 ingredient-options"
+                  oncontextmenu="return false;"
+                ></div>
               </div>
               <div class="col-md-3">
-                <h4 class="mb-2 text-center text-uppercase">Selected Ingredients</h4>
+                <h4 class="mb-2 text-center text-uppercase">
+                  Selected Ingredients
+                </h4>
                 <div id="selected-list"></div>
               </div>
             </div>
             <div class="row">
               <div id="enter-ingredient" class="col-md-9 my-3">
                 <form id="ingredient-form" class="mb-3">
-                  <input id="add-ingredient" class="btn mr-2 modal-btn" type="submit" value="Add Ingredient">
-                  <input type="text" class="w-50 border-rounded" id="new-ingredient-input"><br>
+                  <input
+                    id="add-ingredient"
+                    class="btn mr-2 modal-btn"
+                    type="submit"
+                    value="Add Ingredient"
+                  />
+                  <input
+                    type="text"
+                    class="w-50 border-rounded"
+                    id="new-ingredient-input"
+                  /><br />
                 </form>
               </div>
               <div class="col-md-3">
-                <button id="search-api" class="btn d-block mx-auto my-3 modal-btn" type="submit">Search For
-                  Recipes</button>
+                <button
+                  id="search-api"
+                  class="btn d-block mx-auto my-3 modal-btn"
+                  type="submit"
+                >
+                  Search For Recipes
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script
