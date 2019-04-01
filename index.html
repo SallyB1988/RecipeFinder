@@ -23,13 +23,11 @@
     </div>
     <div class="row main-sel-ingredients">
       <div class="col-md-12 px-3 py-2 my-2 main-style">
-
         <p class="text-uppercase text-center main-header">Favorite ingredients</p>
         <div id="fav-btns" class="d-block mx-auto" oncontextmenu="return false;"></div>
         <div class="d-block mx-auto">
           <form class="form-inline">
             <div class="form-group mx-3 mb-2 d-block mx-auto">
-
               <form id="main-item-form" class="mb-3">
                 <input id="main-add-item" class="btn main-button" type="submit" value="Add Item">
                 <input for="main-add-item" type="text" class="w-50 border-rounded" id="main-new-item-input">
@@ -49,13 +47,11 @@
       </div>
       <div class="col-md-3">
         <div id="main-selected-box" class="main-box-style">
-
           <p class="text-uppercase text-center main-header">Selected ingredients</p>
           <div id="main-selected-list"></div>
           <button id="main-get-recipes" type="submit" class="btn mb-2 main-button">Get Recipes</button>
         </div>
       </div>
-
     </div>
 
     <!-- Bootstrap Modal -- Initial Select Ingredients -->
@@ -69,7 +65,6 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-
           <div class="modal-body">
             <div class="row">
               <div class="w-75 px-5 py-3 mx-auto mt-1 mb-4 instructions">
@@ -79,37 +74,33 @@
               </div>
             </div>
             <div class="row">
-              <!-- headers for modal columns -->
-              <div class="col-md-8">
+              <div class="col-md-9">
                 <h4 class="mb-2 text-center text-uppercase">Ingredients</h4>
+                <div id="ingredient-options" class="px-3 ingredient-options" oncontextmenu="return false;">
+                </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <h4 class="mb-2 text-center text-uppercase">Selected Ingredients</h4>
-              </div>
-            </div>
-            <div class="row">
-              <div id="ingredient-options" class="col-md-8 px-3 ingredient-options" oncontextmenu="return false;"></div>
-              <div class="col-md-4 p-2 my-2 ingredient-selected">
                 <div id="selected-list"></div>
               </div>
             </div>
             <div class="row">
-              <div class="col-md-8">
-                <div id="enter-ingredient" class="my-3">
-                  <form id="ingredient-form" class="mb-3">
-                    <input id="add-ingredient" class="btn mr-2 modal-btn" type="submit" value="Add Ingredient">
-                    <input type="text" class="w-50 border-rounded" id="new-ingredient-input"><br>
-                  </form>
-                </div>
+              <div id="enter-ingredient" class="col-md-9 my-3">
+                <form id="ingredient-form" class="mb-3">
+                  <input id="add-ingredient" class="btn mr-2 modal-btn" type="submit" value="Add Ingredient">
+                  <input type="text" class="w-50 border-rounded" id="new-ingredient-input"><br>
+                </form>
               </div>
-              <div class="col-md-4">
-                <button id="search-api" class="btn d-block mx-auto my-3 modal-btn" type="submit">Search For Recipes</button>
+              <div class="col-md-3">
+                <button id="search-api" class="btn d-block mx-auto my-3 modal-btn" type="submit">Search For
+                  Recipes</button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
   </div>
 
