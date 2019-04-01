@@ -8,10 +8,13 @@ const defaultImage = "./assets/images/groceries.png";
  */
 $(document).on("click", ".selected-item", function() {
   let food = $(this).attr("food-item");
-  let index = searchItems.indexOf(food);
-  searchItems.splice(index,1);
-  updateSelectedItemsList("#selected-list");        // update modal list
-  updateSelectedItemsList("#main-selected-list");   // update main page list
+    $(this).addClass('animated rollOut')
+  setTimeout(function() {
+    let index = searchItems.indexOf(food);
+    searchItems.splice(index,1);
+    updateSelectedItemsList("#selected-list");        // update modal list
+    updateSelectedItemsList("#main-selected-list");   // update main page list
+  },1000)
 })
 
 /**
@@ -19,6 +22,7 @@ $(document).on("click", ".selected-item", function() {
  */
 $(document).on("mousedown", ".single-ingredient", function(e) {
   let food = $(this).attr("food-item");
+
   if (e.button === 0) { // left mouse click -- add item to selected list  
     if (!searchItems.includes(food)) {
       searchItems.push(food);
@@ -42,7 +46,7 @@ $(document).on("mousedown", ".single-ingredient", function(e) {
 })
 
   /*
-  * Creates clickable images and puts them in the ingredients-options box
+  * Creates ingredient containers (name and image) and puts them in the ingredients-options box
   */
  const createIngredientChoices = () => {
    let $ingredientOptions = $('#ingredient-options');
@@ -50,7 +54,7 @@ $(document).on("mousedown", ".single-ingredient", function(e) {
    let foodImage = "";
    for (let i = 0; i < ingredients.length; i++) {
 
-     if (ingredients[i].image !== "") {
+     if (ingredients[i].image !== "") {           // create img tag with src image and default image to display if source image is bad
          foodImage = `<img id="ingredient-${i}"
           class="ingredient-option-image"
           src=${ingredients[i].image}
