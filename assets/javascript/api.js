@@ -1,4 +1,4 @@
-const defaultRecipeImage = "./assets/images/groceries.png";
+const defaultRecipeImage = "./assets/images/defaultRecipe.jpg.png";
 
 const fakeData = [
 
@@ -111,13 +111,11 @@ function createRecipeOptionCards(recipes) {
   $recipeOptions.empty();
   let recipeImage = "";
   for (i = 0; i < recipes.length; i++) {
-    if (recipes[i].image !== "") {
       recipeImage = `<img id="recipe-${i}"
        class="recipe-option-image"
        src=${recipes[i].image}
        alt=${recipes[i].title}
        onerror="this.src='${defaultRecipeImage}'" >`
-    }
 
     $('#main-recipe-options').append(`<div id="recipe-${i}# class="m-1 justify-content-between recipe-card">
   <div class="card recipe-card"  recipe-id="${recipes[i].id}">

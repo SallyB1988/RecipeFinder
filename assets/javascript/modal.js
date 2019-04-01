@@ -3,6 +3,7 @@ var ingredients = []; // this array will contain ingredient objects (with name a
 var defaultIngredients = ['chicken', 'beef', 'cheese', 'salmon', 'rice']; // we can eventually put this in local storage
 var searchItems = [];
 const defaultImage = "./assets/images/groceries.png";
+const defaultMeal = "./assets/images/defaultMeal.jpg";
 /**
  * When an item in the selected items list is clicked, remove it from the searchItems array and update the list
  */
@@ -148,6 +149,12 @@ $("#main-add-item").on("click", (e) => {
   $("#main-new-item-input").val(''); // clear input field
 })
 
+
+$("#close-modal").on("click", () => {
+    createMainPageButtons();
+})
+
+
 /**
  * When an item is clicked, add it to the searchItems array and update the selected items list
  */
@@ -173,8 +180,6 @@ $(document).on("mousedown", ".main-item-button", function (e) {
     }
     updateSelectedItemsList("#main-selected-list")
     createMainPageButtons();
-
-    // createIngredientChoices();
   }
 })
 
