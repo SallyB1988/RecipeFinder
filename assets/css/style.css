@@ -3,6 +3,10 @@ body {
   background-size: cover;
 }
 
+img.mx-auto {
+  max-height: 200px;
+}
+
 .container-fluid {
   padding: 20px 60px;
   width: 94%;
