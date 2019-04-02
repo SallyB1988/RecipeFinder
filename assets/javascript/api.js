@@ -1,58 +1,5 @@
 const defaultRecipeImage = "./assets/images/defaultRecipe.jpg.png";
 
-const fakeData = [
-
-  {
-    id: 113949,
-    title: "Chicken and Wild Rice",
-    image: "https://spoonacular.com/recipeImages/113949-312x231.jpg"
-  },
-  {
-    id: 603825,
-    title: "Buffalo Chicken Spring Rolls #SundaySupper",
-    image: "https://spoonacular.com/recipeImages/603825-312x231.jpg"
-  },
-  {
-    id: 543731,
-    title: "Chicken Fajita Rice Bowl",
-    image: "https://spoonacular.com/recipeImages/543731-312x231.jpg"
-  },
-  {
-    id: 27998,
-    title: "Chicken and Zucchini Skillet",
-    image: "https://spoonacular.com/recipeImages/27998-312x231.jpg"
-  },
-  {
-    id: 921334,
-    title: "Savory Rice Porridge #SundaySupper",
-    image: "https://spoonacular.com/recipeImages/921334-312x231.jpg"
-  },
-];
-
-
-const fakeRecipeDetails = {
-  image: "https://spoonacular.com/recipeImages/27998-556x370.jpg",
-  ingredients: [
-    "2 cans (15 oz. each) navy or great Northern beans, drained, rinsed",
-    "3 cups hot cooked rice",
-    "1/2 cup KRAFT Zesty Italian Dressing, divided",
-    "1-1/2 cups KRAFT Shredded Low-Moisture Part-Skim Mozzarella Cheese",
-    "1 whole chicken (3-1/2 lb.), cut into 8 pieces",
-    "5 small zucchini, cut into 1/4-inch slices (about 4 cups)",
-  ],
-  instructions: [
-    "Heat 1/4 cup of the dressing in large skillet on medium-high heat.",
-    "Add chicken; cook 10 min. or until browned on both sides.",
-    "Remove from skillet; cover to keep warm.",
-    "Add remaining 1/4 cup dressing and beans.  Top with chicken; cover.  Reduce heat; cook 20 to 25 min. or until chicken is cooked through (180F), stirring occasionally and mashing beans to thicken sauce as desired.",
-    "Stir in zucchini; cook 10 min. or until tender, stirring occasionally.  Spoon chicken mixture over rice on large serving platter.  Sprinkle with cheese.",
-  ],
-  name: "Chicken and Zucchini Skillet",
-  timeinMinutes: 55,
-}
-
-
-
 // ========  MULTIPLE RECIPES API CALL =======================================
 /*
  *  Makes AJAX call to get the recipes based on the search criteria provided.
@@ -82,13 +29,6 @@ const getRecipes = (ingredients, quantity) => {
     createRecipeOptionCards(recipes);
   });
 }
-
-
-//************* TEMPORARY!!! */
-// const getRecipes = (i1, q) => {
-//   createRecipeOptionCards(fakeData);
-// }
-
 
 // Generates an array of recipe objects. Each object contains the recipe ID, title, and image url.
 function createRecipeArray(resp) {
@@ -150,19 +90,12 @@ const openRecipeDetailsPage = (id) => {
 
   $.ajax(settings).done(function (response) {
     recipe = createRecipeObject(response);
-    localStorage.clear();
+    // localStorage.clear();
     localStorage.setItem("data", JSON.stringify(recipe));
     window.open("recipeDetails.html")
   });
 
 }
-
-// **** TEMPORARY *********
-// const openRecipeDetailsPage = (id) => {
-//   localStorage.clear();
-//   localStorage.setItem("data", JSON.stringify(fakeRecipeDetails));
-//     window.open("recipeDetails.html")
-// }
 
 /* Generates a recipe object with the following key values:
  *  name:  recipe name
