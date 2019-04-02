@@ -1,4 +1,4 @@
-# Recipe Finder
+# Fork To Mouth Recipe Finder
 
 ## Description
 
@@ -16,3 +16,11 @@
 
 - You will select which recipe you like and it will populate a screen with the instructions how to make it.
   Collapse
+
+## Deployed Link
+
+[Fork To Mouth](https://sallyb1988.github.io/RecipeFinder/)
+
+## Screenshot
+
+![Alt Text](./assets/images/screenshot.png)
