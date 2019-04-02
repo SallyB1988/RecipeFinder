@@ -34,10 +34,6 @@
   color: black;
   text-transform: uppercase;
 }
-.list-group-item:first-child {
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
-}
 
 .ingredient-frame {
   background-color: #dbab50;
