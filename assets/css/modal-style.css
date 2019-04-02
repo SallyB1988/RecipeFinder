@@ -3,12 +3,17 @@
   color: black;
 }
 
+.modal-title-logo {
+  width: 50px;
+  float: left;
+}
+
 .modal-title {
   text-transform: uppercase;
   /* font-family: "Franklin Gothic Medium", "Arial Narrow", "Arial", "sans-serif"; */
-  font-weight: normal;
-  font-size: 1.2em;
-  padding-top: 0.5em;
+  font-weight: 500;
+  font-size: 1.3em;
+  /* width: 80%; */
 }
 
 .modal-content {
