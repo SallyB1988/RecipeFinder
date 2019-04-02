@@ -31,7 +31,7 @@ $(document).on("click", ".ingredient-option-image", function() {
 });
 
 /**
- * When an item is clicked, add it to the searchItems array and update the selected items list
+ * Delete ingredient item
  */
 $(document).on("click", ".ingredient-delete", function() {
   let food = $(this).attr("food-item");
@@ -47,6 +47,8 @@ $(document).on("click", ".ingredient-delete", function() {
   if (index >= 0) {
     searchItems.splice(index, 1);
   }
+
+  localStorage.setItem("ingredients", JSON.stringify(ingredients));
   updateSelectedItemsList("#selected-list");
   createIngredientChoices();
 });
@@ -111,6 +113,8 @@ $("#add-ingredient").on("click", e => {
     .trim();
   if (subject !== "" && !ingredientExists(subject)) {
     ingredients.push(createIngredientObject(subject));
+    // localStorage.clear();
+    localStorage.setItem("ingredients", JSON.stringify(ingredients));
     createIngredientChoices();
   }
   $("#new-ingredient-input").val(""); // clear input field
@@ -145,13 +149,6 @@ function getIngredientImage(food) {
   return findImage;
 }
 
-$(document).ready(() => {
-  defaultIngredients.forEach(item => {
-    ingredients.push(createIngredientObject(item));
-    createIngredientChoices();
-  });
-});
-
 // ===========  FUNCTTIONS RELATED TO MAIN PAGE ============================
 // Create a set of ingredient buttons to display on the main page
 function createMainPageButtons() {
@@ -177,6 +174,8 @@ $("#main-add-item").on("click", e => {
     .trim();
   if (subject !== "" && !ingredientExists(subject)) {
     ingredients.push(createIngredientObject(subject));
+    // localStorage.clear();
+    localStorage.setItem("ingredients", JSON.stringify(ingredients));
     createMainPageButtons();
   }
   $("#main-new-item-input").val(""); // clear input field
@@ -214,6 +213,8 @@ $(document).on("click", ".main-ingredient-delete", function() {
   if (index >= 0) {
     searchItems.splice(index, 1);
   }
+
+  localStorage.setItem("ingredients", JSON.stringify(ingredients));
   updateSelectedItemsList("#main-selected-list");
   createMainPageButtons();
 });
@@ -238,5 +239,16 @@ $(document).on("click", ".recipe-card", function() {
 });
 
 $(window).on("load", function() {
+  localStorage.removeItem("recipe");
+
+  ingredients = JSON.parse(localStorage.getItem("ingredients"));
+  if (!ingredients) {
+    defaultIngredients = ["chicken", "beef", "cheese", "salmon", "rice"]; // we can eventually put this in local storage
+    defaultIngredients.forEach(item => {
+      ingredients.push(createIngredientObject(item));
+    });
+  }
+  createIngredientChoices();
+
   $("#select-ingredients").modal("show");
 });
