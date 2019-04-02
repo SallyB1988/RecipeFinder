@@ -24,41 +24,12 @@ $(document).on("click", ".selected-item", function () {
 $(document).on("click", ".ingredient-option-image", function () {
   let food = $(this).attr("food-item");
 
-    if (!searchItems.includes(food)) {
-      searchItems.push(food);
-      updateSelectedItemsList("#selected-list");
-    }
+  if (!searchItems.includes(food)) {
+    searchItems.push(food);
+    updateSelectedItemsList("#selected-list");
+  }
 
 })
-
-/**
- * When an item is clicked, add it to the searchItems array and update the selected items list
- */
-// $(document).on("mousedown", ".single-ingredient", function (e) {
-//   let food = $(this).attr("food-item");
-
-//   if (e.button === 0) { // left mouse click -- add item to selected list  
-//     if (!searchItems.includes(food)) {
-//       searchItems.push(food);
-//       updateSelectedItemsList("#selected-list");
-//     }
-//   } else if (e.button === 2) { // right mouse click -- remove item from ingredient optionslist
-//     for (i = 0; i < ingredients.length; i++) {
-//       if (ingredients[i].name === food) {
-//         ingredients.splice(i, 1);
-//         break;
-//       }
-//     }
-//     // remove item from seleted items list as well (if it is there)
-//     let index = searchItems.indexOf(food)
-//     if (index >= 0) {
-//       searchItems.splice(index, 1);
-//     }
-//     updateSelectedItemsList("#selected-list")
-//     createIngredientChoices();
-//   }
-// })
-
 
 /**
  * When an item is clicked, add it to the searchItems array and update the selected items list
@@ -66,19 +37,19 @@ $(document).on("click", ".ingredient-option-image", function () {
 $(document).on("click", ".ingredient-delete", function () {
   let food = $(this).attr("food-item");
 
-    for (i = 0; i < ingredients.length; i++) {
-      if (ingredients[i].name === food) {
-        ingredients.splice(i, 1);
-        break;
-      }
+  for (i = 0; i < ingredients.length; i++) {
+    if (ingredients[i].name === food) {
+      ingredients.splice(i, 1);
+      break;
     }
-    // remove item from seleted items list as well (if it is there)
-    let index = searchItems.indexOf(food)
-    if (index >= 0) {
-      searchItems.splice(index, 1);
-    }
-    updateSelectedItemsList("#selected-list")
-    createIngredientChoices();
+  }
+  // remove item from seleted items list as well (if it is there)
+  let index = searchItems.indexOf(food)
+  if (index >= 0) {
+    searchItems.splice(index, 1);
+  }
+  updateSelectedItemsList("#selected-list")
+  createIngredientChoices();
 })
 
 /*
@@ -91,20 +62,13 @@ const createIngredientChoices = () => {
   for (let i = 0; i < ingredients.length; i++) {
 
     $ingredientOptions.append(ingredientComponent(ingredients[i]));
-    // foodImage = `<img id="ingredient-${i}"
-    //       class="ingredient-option-image"
-    //       src=${ingredients[i].image}
-    //       onerror="this.src='${defaultImage}'" >`
-
-    // $('#ingredient-options').append(`<div id="ingredient-${i}" class="m-1 float-left ingredient-frame">
-    //   <div class="single-ingredient" food-item="${ingredients[i].name}">
-    //     <div class="text-center ingredient-name">${ingredients[i].name}</div>
-    //     ${foodImage}
-    //   </div>`);
   }
 }
 
-
+/**
+ * Creates a card with a delete icon, a recipe image, and food name
+ * @param {*} food 
+ */
 const ingredientComponent = (food) => {
   const card = `
   
@@ -120,7 +84,6 @@ const ingredientComponent = (food) => {
   </div>
   `
   return card;
-
 }
 
 
@@ -191,7 +154,10 @@ function createMainPageButtons() {
   $mainIngredientBtns.empty();
 
   for (i = 0; i < ingredients.length; i++) {
-    $mainIngredientBtns.append(`<button type="button" class="btn text-center py-1 m-2 main-item-button" food-item="${ingredients[i].name}">${ingredients[i].name}</button>`);
+    $mainIngredientBtns.append(`<span class="btn float-left px-1 py-0 main-item-background">
+      <button type="button" class="btn text-center py-1 px-1 mx-0 main-item-button" food-item="${ingredients[i].name}">${ingredients[i].name}</button>
+      <i class="far fa-trash-alt mt-1 px-1 main-ingredient-delete" food-item="${ingredients[i].name}" ></i></span>
+    </span>`);
   }
 }
 
@@ -207,36 +173,42 @@ $("#main-add-item").on("click", (e) => {
 
 
 $("#close-modal").on("click", () => {
-    createMainPageButtons();
+  createMainPageButtons();
+})
+
+/**
+ * When an main ingredient item is clicked, add it to the searchItems array and update the selected items list
+ */
+$(document).on("click", ".main-item-button", function () {
+
+  let food = $(this).attr("food-item");
+  if (!searchItems.includes(food)) {
+    searchItems.push(food);
+    updateSelectedItemsList("#main-selected-list");
+  }
 })
 
 
 /**
- * When an item is clicked, add it to the searchItems array and update the selected items list
+ * When an trash can of ingredient item is clicked, remove it from the favorites and from the selected list
  */
-$(document).on("mousedown", ".main-item-button", function (e) {
+$(document).on("click", ".main-ingredient-delete", function () {
 
   let food = $(this).attr("food-item");
-  if (e.button === 0) { // left mouse click -- add item to selected ingredients list
-    if (!searchItems.includes(food)) {
-      searchItems.push(food);
-      updateSelectedItemsList("#main-selected-list");
+  // right mouse click -- remove item button from ingredient options
+  for (i = 0; i < ingredients.length; i++) {
+    if (ingredients[i].name === food) {
+      ingredients.splice(i, 1);
+      break;
     }
-  } else if (e.button === 2) { // right mouse click -- remove item button from ingredient options
-    for (i = 0; i < ingredients.length; i++) {
-      if (ingredients[i].name === food) {
-        ingredients.splice(i, 1);
-        break;
-      }
-    }
-    // remove item from seleted items list as well (if it is there)
-    let index = searchItems.indexOf(food)
-    if (index >= 0) {
-      searchItems.splice(index, 1);
-    }
-    updateSelectedItemsList("#main-selected-list")
-    createMainPageButtons();
   }
+  // remove item from seleted items list as well (if it is there)
+  let index = searchItems.indexOf(food)
+  if (index >= 0) {
+    searchItems.splice(index, 1);
+  }
+  updateSelectedItemsList("#main-selected-list")
+  createMainPageButtons();
 })
 
 // Calls the function that makes the API call to get recipes. Initially set it to find 6 recipes

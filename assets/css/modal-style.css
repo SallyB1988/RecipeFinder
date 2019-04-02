@@ -1,5 +1,5 @@
 .modal-header {
-  background-color: #49a6a5;   /* DARKEST green-grey */
+  background-color: #49a6a5;
   color: black;
 }
 
@@ -8,7 +8,7 @@
 }
 
 .modal-content {
-  background-color: rgb(202, 226, 221);     /* MEDIUM Green-gray*/
+  background-color: rgb(202, 226, 221);
 }
 
 .modal-dialog {
@@ -16,7 +16,7 @@
 }
 
 .modal-btn {
-  background-color: #49a6a5;   /* DARKER green-grey */
+  background-color: #49a6a5;
 }
 
 #ingredient-options {
@@ -25,20 +25,19 @@
   overflow-y: auto;
 }
 
-#selected-title {
+/* #selected-title {
   font-size: 26px;
   text-align: center;
-}
+} */
 
 .selected-item {  
-  background-color: #49a6a5;   /* LIGHT green-grey */
+  background-color: #49a6a5;
   color: black;
   text-transform: uppercase;
 }
 
-/* Styling for ingredient inside frame */
 .ingredient-frame {
-  background-color: #49a6a5;   /* DARKER green-grey */
+  background-color: #49a6a5;
   height: 120px;
   width: 120px;
 }
@@ -57,12 +56,6 @@
   margin-bottom: 5px;
   position: relative;
   bottom: 50%;
-}
-
-.instructions {
-  background-color: #49a6a5;   /* DARKER green-grey */
-  border-radius: 5px;
-  font-size: 18px;
 }
 
 #new-ingredient-input {
