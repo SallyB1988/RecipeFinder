@@ -5,6 +5,10 @@
 
 .modal-title {
   text-transform: uppercase;
+  /* font-family: "Franklin Gothic Medium", "Arial Narrow", "Arial", "sans-serif"; */
+  font-weight: normal;
+  font-size: 1.2em;
+  padding-top: 0.5em;
 }
 
 .modal-content {
@@ -21,14 +25,9 @@
 
 #ingredient-options {
   flex-wrap: wrap;
-  height: 450px;
+  height: 400px;
   overflow-y: auto;
 }
-
-/* #selected-title {
-  font-size: 26px;
-  text-align: center;
-} */
 
 .selected-item {  
   background-color: #49a6a5;
