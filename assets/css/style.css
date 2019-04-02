@@ -17,6 +17,8 @@ body {
 .main-item-button {
   background-color: #dbab50;
   color: black;
+  min-width: 60px;
+  text-align: center;
   border: none;
 }
 
@@ -28,9 +30,10 @@ body {
 
 .main-header {
   text-transform: uppercase;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", "Arial", "sans-serif";
+  /* font-family: "Franklin Gothic Medium", "Arial Narrow", "Arial", "sans-serif"; */
   font-weight: normal;
-  font-size: 1.5em;
+  font-size: 1.2em;
+  padding-top: 0.5em;
 }
 
 .main-box-style {
