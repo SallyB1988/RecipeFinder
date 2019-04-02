@@ -4,12 +4,13 @@ body {
 }
 
 .container-fluid {
-  padding: 10px 60px;
+  padding: 20px 60px;
+  width: 94%;
 }
 
 .main-style {
   background-color: #eeeeee;
-  opacity: 0.8;
+  opacity: 0.95;
 }
 
 .main-button,
@@ -29,13 +30,20 @@ body {
   text-transform: uppercase;
   font-family: "Franklin Gothic Medium", "Arial Narrow", "Arial", "sans-serif";
   font-weight: normal;
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 .main-box-style {
   background-color: #eeeeee;
-  opacity: 0.8;
-  min-height: 400px;
+  opacity: 0.95;
+}
+
+#main-selected-box {
+  height: 400px;
+}
+
+#main-get-recipes {
+  height: 50px;
 }
 
 .main-new-ingredient {
@@ -45,6 +53,7 @@ body {
 
 #main-selected-list {
   width: 70%;
+  height: 400px;
 }
 
 .recipe-card {
@@ -52,13 +61,11 @@ body {
   height: 300px;
   margin: 10px;
   float: left;
-  /* justify-content: space-around!important; */
 }
 
 #main-recipe-options {
-  height: 500px;
-  overflow-y: scroll;
-  /* justify-content: left !important; */
+  height: 400px;
+
 }
 .card-text {
   font-size: 14px;

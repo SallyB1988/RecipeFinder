@@ -93,7 +93,7 @@ const updateSelectedItemsList = (divId) => {
   if (searchItems) {
     let $listGroup = $selectedList.append("<div>").addClass("list-group");
     for (i = 0; i < searchItems.length; i++) {
-      $listGroup.append(`<button type="button" class="list-group-item list-group-item-action w-50 mx-auto text-center py-1 selected-item" food-item="${searchItems[i]}">${searchItems[i]}</button>`);
+      $listGroup.append(`<button type="button" class="list-group-item list-group-item-action w-75 mx-auto text-center py-1 selected-item" food-item="${searchItems[i]}">${searchItems[i]}</button>`);
     }
   }
 }
@@ -154,10 +154,10 @@ function createMainPageButtons() {
   $mainIngredientBtns.empty();
 
   for (i = 0; i < ingredients.length; i++) {
-    $mainIngredientBtns.append(`<span class="btn float-left px-1 py-0 main-item-background">
+    $mainIngredientBtns.append(`<div class="btn float-left px-1 py-0 main-item-background">
       <button type="button" class="btn text-center py-1 px-1 mx-0 main-item-button" food-item="${ingredients[i].name}">${ingredients[i].name}</button>
-      <i class="far fa-trash-alt mt-1 px-1 main-ingredient-delete" food-item="${ingredients[i].name}" ></i></span>
-    </span>`);
+      <i class="far fa-trash-alt mt-1 px-1 main-ingredient-delete" food-item="${ingredients[i].name}" ></i></div>
+    </div>`);
   }
 }
 

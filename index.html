@@ -23,14 +23,16 @@
     <div class="row no-gutters main-sel-ingredients">
       <div class="col-md-12 px-3 py-2 my-2 main-style">
         <p class="text-uppercase text-center main-header">
-          Favorite ingredients
+          Favorites
         </p>
-        <div id="fav-btns" class="d-block mx-auto"></div>
-        <div class="d-block mx-auto">
+        <div class="row">
+          <div id="fav-btns" class="mb-2 d-block mx-auto"></div>
+        </div>
+        <div class="row d-block mx-auto">
           <form class="form-inline">
             <div class="form-group mx-3 mb-2 d-block mx-auto">
               <form id="main-item-form" class="mb-3">
-                <input id="main-add-item" class="btn main-button" type="submit" value="Add Item" />
+                <input id="main-add-item" class="btn py-1 main-button" type="submit" value="Add Item" />
                 <input for="main-add-item" type="text" class="w-50 border-rounded" id="main-new-item-input" />
               </form>
             </div>
@@ -38,11 +40,11 @@
         </div>
       </div>
     </div>
-    <div class="row mt-5">
+    <div class="row mt-1 main-display-row">
       <div class="col-md-9">
         <div id="main-recipes-box" class="main-box-style">
           <p class="text-uppercase text-center main-header">Recipes</p>
-          <div id="main-recipe-options"></div>
+          <div id="main-recipe-options" class="overflow-auto"></div>
         </div>
       </div>
         <div class="col-md-3">
@@ -50,11 +52,12 @@
             <p class="text-uppercase text-center main-header">
               Selected ingredients
             </p>
-            <div id="main-selected-list"></div>
+            <div id="main-selected-list" class="overflow-auto"></div>
+          </div>
+          <div id="main-get-recipes" class="main-box-style">
             <button
-              id="main-get-recipes"
               type="submit"
-              class="btn mb-2 main-button"
+              class="btn mb-2 d-block mx-auto main-button"
             >
               Get Recipes
             </button>
