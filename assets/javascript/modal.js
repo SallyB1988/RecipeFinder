@@ -9,13 +9,13 @@ const defaultMeal = "./assets/images/defaultMeal.jpg";
  */
 $(document).on("click", ".selected-item", function() {
   let food = $(this).attr("food-item");
-  $(this).addClass("animated rollOut");
+  $(this).addClass("animated zoomOut");
   setTimeout(function() {
     let index = searchItems.indexOf(food);
     searchItems.splice(index, 1);
     updateSelectedItemsList("#selected-list"); // update modal list
     updateSelectedItemsList("#main-selected-list"); // update main page list
-  }, 1000);
+  }, 500);
 });
 
 /**
