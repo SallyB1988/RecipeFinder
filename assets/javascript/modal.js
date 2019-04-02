@@ -242,7 +242,7 @@ $(window).on("load", function() {
   localStorage.removeItem("recipe");
 
   ingredients = JSON.parse(localStorage.getItem("ingredients"));
-  if (!ingredients) {
+  if ((ingredients = ingredients || [])) {
     defaultIngredients = ["chicken", "beef", "cheese", "salmon", "rice"]; // we can eventually put this in local storage
     defaultIngredients.forEach(item => {
       ingredients.push(createIngredientObject(item));
