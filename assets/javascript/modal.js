@@ -21,30 +21,43 @@ $(document).on("click", ".selected-item", function () {
 /**
  * When an item is clicked, add it to the searchItems array and update the selected items list
  */
-$(document).on("mousedown", ".single-ingredient", function (e) {
+$(document).on("click", ".ingredient-option-image", function () {
   let food = $(this).attr("food-item");
 
-  if (e.button === 0) { // left mouse click -- add item to selected list  
     if (!searchItems.includes(food)) {
       searchItems.push(food);
       updateSelectedItemsList("#selected-list");
     }
-  } else if (e.button === 2) { // right mouse click -- remove item from ingredient optionslist
-    for (i = 0; i < ingredients.length; i++) {
-      if (ingredients[i].name === food) {
-        ingredients.splice(i, 1);
-        break;
-      }
-    }
-    // remove item from seleted items list as well (if it is there)
-    let index = searchItems.indexOf(food)
-    if (index >= 0) {
-      searchItems.splice(index, 1);
-    }
-    updateSelectedItemsList("#selected-list")
-    createIngredientChoices();
-  }
+
 })
+
+/**
+ * When an item is clicked, add it to the searchItems array and update the selected items list
+ */
+// $(document).on("mousedown", ".single-ingredient", function (e) {
+//   let food = $(this).attr("food-item");
+
+//   if (e.button === 0) { // left mouse click -- add item to selected list  
+//     if (!searchItems.includes(food)) {
+//       searchItems.push(food);
+//       updateSelectedItemsList("#selected-list");
+//     }
+//   } else if (e.button === 2) { // right mouse click -- remove item from ingredient optionslist
+//     for (i = 0; i < ingredients.length; i++) {
+//       if (ingredients[i].name === food) {
+//         ingredients.splice(i, 1);
+//         break;
+//       }
+//     }
+//     // remove item from seleted items list as well (if it is there)
+//     let index = searchItems.indexOf(food)
+//     if (index >= 0) {
+//       searchItems.splice(index, 1);
+//     }
+//     updateSelectedItemsList("#selected-list")
+//     createIngredientChoices();
+//   }
+// })
 
 /*
  * Creates ingredient containers (name and image) and puts them in the ingredients-options box
@@ -55,18 +68,38 @@ const createIngredientChoices = () => {
   let foodImage = "";
   for (let i = 0; i < ingredients.length; i++) {
 
-    foodImage = `<img id="ingredient-${i}"
-          class="ingredient-option-image"
-          src=${ingredients[i].image}
-          onerror="this.src='${defaultImage}'" >`
+    $ingredientOptions.append(ingredientComponent(ingredients[i]));
+    // foodImage = `<img id="ingredient-${i}"
+    //       class="ingredient-option-image"
+    //       src=${ingredients[i].image}
+    //       onerror="this.src='${defaultImage}'" >`
 
-    $('#ingredient-options').append(`<div id="ingredient-${i}" class="m-1 float-left ingredient-frame">
-      <div class="single-ingredient" food-item="${ingredients[i].name}">
-        <div class="text-center ingredient-name">${ingredients[i].name}</div>
-        ${foodImage}
-      </div>`);
+    // $('#ingredient-options').append(`<div id="ingredient-${i}" class="m-1 float-left ingredient-frame">
+    //   <div class="single-ingredient" food-item="${ingredients[i].name}">
+    //     <div class="text-center ingredient-name">${ingredients[i].name}</div>
+    //     ${foodImage}
+    //   </div>`);
   }
 }
+
+{/* <div id="delete-${food.name}">
+<button class="btn btn-primary" type="button">Delete</button>
+</div> */}
+const ingredientComponent = (food) => {
+  const card = `
+  
+  <div class="card m-1 float-left ingredient-frame" >
+
+  <img src="${food.image}" class="card-img ingredient-option-image" food-item="${food.name}" alt="${food.name}" onerror="this.src='${defaultImage}'" >
+    <div class="card-image-overlay">
+      <h5 class="card-text ingredient-name">${food.name}</h5>
+    </div>
+  </div>
+  `
+  return card;
+
+}
+
 
 const updateSelectedItemsList = (divId) => {
   const $selectedList = $(divId);

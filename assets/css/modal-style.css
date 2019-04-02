@@ -39,25 +39,27 @@
 /* Styling for ingredient inside frame */
 .ingredient-frame {
   background-color: #49a6a5;   /* DARKER green-grey */
-  height: 100px;
+  height: 120px;
   width: 120px;
 }
 
 .ingredient-option-image {
-  width:  80px;
-  height: 80px;
+  width:  80%;
+  height: 80%;
   display: block;
   margin: auto;
-  padding-bottom: 1em;
+  padding-bottom: 1.0em;
   background-color: transparent;
-  border: none;
+  /* border: none; */
   /* border-radius: 15px; */
 }
 
 .ingredient-name {
   color: black;
   text-transform: uppercase;
-  padding: 3px;
+  margin-bottom: 5px;
+  position: relative;
+  bottom: 50%;
 }
 
 .instructions {
