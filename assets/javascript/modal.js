@@ -240,9 +240,11 @@ $(document).on("click", ".recipe-card", function() {
 
 $(window).on("load", function() {
   localStorage.removeItem("recipe");
+  // localStorage.clear();
 
   ingredients = JSON.parse(localStorage.getItem("ingredients"));
-  if ((ingredients = ingredients || [])) {
+  if (ingredients === null) {
+    ingredients = [];
     defaultIngredients = ["chicken", "beef", "cheese", "salmon", "rice"]; // we can eventually put this in local storage
     defaultIngredients.forEach(item => {
       ingredients.push(createIngredientObject(item));
