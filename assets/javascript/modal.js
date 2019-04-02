@@ -59,6 +59,28 @@ $(document).on("click", ".ingredient-option-image", function () {
 //   }
 // })
 
+
+/**
+ * When an item is clicked, add it to the searchItems array and update the selected items list
+ */
+$(document).on("click", ".ingredient-delete", function () {
+  let food = $(this).attr("food-item");
+
+    for (i = 0; i < ingredients.length; i++) {
+      if (ingredients[i].name === food) {
+        ingredients.splice(i, 1);
+        break;
+      }
+    }
+    // remove item from seleted items list as well (if it is there)
+    let index = searchItems.indexOf(food)
+    if (index >= 0) {
+      searchItems.splice(index, 1);
+    }
+    updateSelectedItemsList("#selected-list")
+    createIngredientChoices();
+})
+
 /*
  * Creates ingredient containers (name and image) and puts them in the ingredients-options box
  */
@@ -82,13 +104,14 @@ const createIngredientChoices = () => {
   }
 }
 
-{/* <div id="delete-${food.name}">
-<button class="btn btn-primary" type="button">Delete</button>
-</div> */}
+
 const ingredientComponent = (food) => {
   const card = `
   
   <div class="card m-1 float-left ingredient-frame" >
+  <div >
+    <i class="float-right p-2 far fa-trash-alt ingredient-delete" food-item="${food.name}" ></i>
+  </div>
 
   <img src="${food.image}" class="card-img ingredient-option-image" food-item="${food.name}" alt="${food.name}" onerror="this.src='${defaultImage}'" >
     <div class="card-image-overlay">
