@@ -57,6 +57,7 @@ body {
 #main-selected-list {
   width: 70%;
   height: 400px;
+  margin: auto;
 }
 
 .recipe-card {

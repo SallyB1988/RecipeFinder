@@ -95,7 +95,7 @@ const updateSelectedItemsList = divId => {
   $selectedList.empty(); // clear out current list
   let makeString = '<div class="list-group">';
   for (i = 0; i < searchItems.length; i++) {
-    makeString += `<button type="button" class="list-group-item list-group-item-action w-75 mx-auto text-center py-1 selected-item" food-item="${
+    makeString += `<button type="button" class="list-group-item list-group-item-action w-100 mx-auto text-center py-1 selected-item" food-item="${
       searchItems[i]
     }">${searchItems[i]}</button>`;
   }
