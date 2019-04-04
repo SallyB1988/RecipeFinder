@@ -1,5 +1,7 @@
 # Fork To Mouth Recipe Finder
 
+**Group Members:** Sally Beckwith, Keanu Korkor, Ben Leone, Herbie Molina
+
 ## Description
 
 - In this activity you will take part in application that helps decided what to eat. This will make sure no matter what you have in your fridge. You could still make a good meal out of it.
