@@ -13,13 +13,29 @@ body {
   opacity: 0.95;
 }
 
+.logo-img {
+  width: 200px;
+}
+
 .main-button,
-.main-item-button {
+.main-item-button,
+{
   background-color: #dbab50;
   color: black;
   min-width: 60px;
   text-align: center;
   border: none;
+}
+
+.intro {
+  background-color: #dbab50;
+  color: black;
+  min-width: 60px;
+  text-align: center;
+  border: none;
+  padding: 15px 0;
+  margin: 10px;
+  border: rounded;
 }
 
 .main-item-background {

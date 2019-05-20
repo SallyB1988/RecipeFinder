@@ -30,7 +30,7 @@
 
 #ingredient-options {
   flex-wrap: wrap;
-  height: 400px;
+  height: 350px;
   overflow-y: auto;
 }
 
