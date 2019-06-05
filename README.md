@@ -4,20 +4,14 @@
 
 ## Description
 
-- In this activity you will take part in application that helps decided what to eat. This will make sure no matter what you have in your fridge. You could still make a good meal out of it.
+- This app helps you find recipes that use ingredients you have on hand. RecipeFinder keeps track of items you typically have in stock. New items may be added to your staples list, or if you find you no longer use a particular item, remove it from your staples list.
 
 ## Instructions
 
-- You will need enter the app and you should see a modal pop up
-
-  - From there you will select the ingredients you want to use and then press search recipes.
-
-- A few recipes will pop up, if you want to delete an ingredient you will just need to click on it and it will disappear.
-
-  - If you want to add an ingredient you will just need to type in what you would like and it should pop up in to your selected ingredients cart.
-
-- You will select which recipe you like and it will populate a screen with the instructions how to make it.
-  Collapse
+- When you open the app, you are greeted with a modal that displays the items in your staples list. You may add new staples and the item and an image (if it is available) will be added to the list.
+- Select the staples that you want to use for the meal you are planning.
+- Press search recipes, and RecipeFinder will access the Spoonacular API to find recipes that use the selected items. These recipes are displayed on the main screen.
+- To view the instructions for a particular recipe, click on the recipe image.
 
 ## Deployed Link
 
@@ -26,3 +20,11 @@
 ## Screenshot
 
 ![Alt Text](./assets/images/screenshot.png)
+
+## Technologies
+
+* JavaScript
+* JQuery
+* Bootstrap
+* HTML
+* CSS
